@@ -1,31 +1,30 @@
-const nomeUsuario = prompt("Qual é seu nome ?")
-const cidadeUsuario = prompt("Qual cidade você está ?")
+
 
 const abrigos = [
     {
         nomeAbrigo: "Lar de Caridade",
-        enderecoAbrigo: "Rua Lisboa n. 120",
+        enderecoAbrigo: "Rua Lisboa nº120",
         telefoneAbrigo: 35728599,
         capacidadeAbrigo: 35,
         cidade: "São Leopoldo"
     },
     {
         nomeAbrigo: "União",
-        enderecoAbrigo: "Rua America n.50",
+        enderecoAbrigo: "Rua America nº50",
         telefoneAbrigo: 35684588,
         capacidadeAbrigo: 40,
         cidade: "Novo Hamburgo"
     },
     {
         nomeAbrigo: "Abraço de Jesus",
-        enderecoAbrigo: "Rua Independência n. 355",
+        enderecoAbrigo: "Rua Independência nº355",
         telefoneAbrigo: 35729877,
         capacidadeAbrigo: 50,
         cidade: "Canoas"
     },
     {
         nomeAbrigo: "Lar da Esperança",
-        enderecoAbrigo: "Rua Catedral n. 420",
+        enderecoAbrigo: "Rua Catedral nº420",
         telefoneAbrigo: 35723125,
         capacidadeAbrigo: 45,
         cidade: "Porto Alegre"
@@ -50,6 +49,8 @@ function menu () {
             procurarAbrigo()
 
         } else if (opcaoMenu === 4) {
+            const confirmar = prompt("Tem certeza que deseja sair ? Sim ( S ) ou Não ( N ) ")
+            }
             return
         }
         menu()
@@ -62,6 +63,7 @@ function menu () {
         novo.telefoneAbrigo = Number(prompt("Qual é o número do telefone do abrigo ?"))
         novo.capacidadeAbrigo = Number(prompt("Qual é a capacidade de lotação do seu abrigo ?"))
         abrigos.push(novo)
+        alert ("Abrigo cadastrado com sucesso")
     
         console.log(abrigos)
     }
@@ -70,7 +72,7 @@ function menu () {
         console.log('--------------------')
         console.log('LISTAGEM DE ABRIGOS:')
         console.log('--------------------')
-        console.log('CÓDIGO |         NOME         |         ENDEREÇO           |   TELEFONE   |  CAPACIDADE | CIDADE')
+        console.log('CÓDIGO|  NOME  |    ENDEREÇO     |  TELEFONE  | CAPACIDADE | CIDADE')
         for (let i = 0; i < abrigos.length; i++ ) {
             console.log(i+1,abrigos[i].nomeAbrigo,abrigos[i].enderecoAbrigo,abrigos[i].telefoneAbrigo,abrigos[i].capacidadeAbrigo,abrigos[i].cidade)
         }
@@ -79,8 +81,19 @@ function menu () {
     }
 
     function procurarAbrigo () {
-
+        let cidadeUsuario = prompt("Qual cidade você está ?")
+        console.log('--------------------')
+        console.log('LISTAGEM DE ABRIGOS:')
+        console.log('--------------------')
+        console.log('CÓDIGO|  NOME  |    ENDEREÇO     |  TELEFONE  | CAPACIDADE | CIDADE')
+        for (let i = 0; i < abrigos.length; i++) {
+            if (cidadeUsuario.toLowerCase() === abrigos[i].cidade.toLowerCase()) {
+                console.log(i+1,abrigos[i].nomeAbrigo,abrigos[i].enderecoAbrigo,abrigos[i].telefoneAbrigo,abrigos[i].capacidadeAbrigo,abrigos[i].cidade)
+            }
+        }
+        
     }
 
 
 menu()
+
